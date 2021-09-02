@@ -1,0 +1,27 @@
+@import '../../../styles/variables.scss';
+
+.footer {
+    height: #{$footer-height};
+    background-color: #{$header-background-color};
+    border-top: 1px solid rgba(255,255,255,.1);
+
+    i {
+        font-size: 2rem;
+        cursor: pointer;
+        color: rgba(124, 124, 124, 0.596);
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    p {
+        color: rgba(124, 124, 124, 0.596);
+    }
+
+    svg {
+        width: 200px;
+        opacity: 0.8;
+    }
+}

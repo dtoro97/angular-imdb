@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+@keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.loading-container {
+    height: auto;
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+    width: 100%;
+    position: absolute;
+    z-index: 999 !important;
+    background-color: #{$main-layout-background-color};
+    animation-name: opacity;
+    animation-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ::ng-deep svg {
+        circle {
+            stroke: #{$genre-card-background-color};
+        }
+    }
+  }
+  

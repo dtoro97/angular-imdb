@@ -1,0 +1,18 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="genre-page d-flex flex-column align-items-center pt-3 pb-3">
+    <ng-container *ngIf="!loading">
+        <h1>Browse Genres</h1>
+        <div class="genre-wrapper" *ngIf="tvGenres">
+            <h2>TV Genres</h2>
+            <div class="genre-grid">
+                <button class="genre-card m-2" *ngFor="let genre of tvGenres">{{genre.name}}</button>
+            </div>
+        </div>
+        <div class="genre-wrapper" *ngIf="movieGenres">
+            <h2>Movie Genres</h2>
+            <div class="genre-grid">
+                <button class="genre-card m-2" *ngFor="let genre of movieGenres">{{genre.name}}</button>
+            </div>
+        </div>
+    </ng-container>
+</div>
