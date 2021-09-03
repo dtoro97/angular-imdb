@@ -1,0 +1,10 @@
+<div class="card-item" *ngIf="item">
+    <img class="pb-3" src="{{getImgUrl(item.poster_path)}}">
+    <div class="card__info d-flex flex-column pl-3 pr-3 pb-3 pt-3">
+        <div class="d-flex justify-content-between flex-row">
+            <span class="pb-3"><i class="bi bi-star-fill"></i>&nbsp;{{item.vote_average}}</span>
+            <span class="font-weight-light">{{(item.release_date || item.first_air_date) | date: 'yyyy'}}</span>
+        </div>
+        <span class="font-weight-bold pb-3">{{item.title || item.name}}</span>
+    </div>
+</div>

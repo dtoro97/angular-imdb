@@ -19,6 +19,7 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
     public subscriptions: Subscription[] = [];
     public movies: ResultModel[] = [];
     public totalPagesCount = 0;
+    public currentPage = 1;
 
     constructor(
         private loadingService: LoadingService,
@@ -30,7 +31,7 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
             (loading: boolean) => {
                 this.loading = loading;
             })];
-        this.httpService.getTopRated('movie').subscribe((data: ResponseDataModel) => {
+        this.httpService.getTopRated('movie', this.currentPage).subscribe((data: ResponseDataModel) => {
             this.movies = data.results!;
             this.totalPagesCount = data.total_pages < 50 ? data.total_pages : 50;
         })
@@ -39,10 +40,14 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
 
     public ngAfterViewInit(): void {
         this.searchBoxControl.valueChanges.pipe(debounceTime(500)).subscribe((value: any) => {
-            this.httpService.searchMovies(value).subscribe((data: ResponseDataModel) => {
-                this.movies = data.results!;
-                this.totalPagesCount = data.total_pages < 50 ? data.total_pages : 50;
-            })
+            if (value.length > 0) {
+                this.httpService.searchMovies(value).subscribe((data: ResponseDataModel) => {
+                    if (data.results!.length > 0) {
+                        this.movies = data.results!;
+                        this.totalPagesCount = data.total_pages < 50 ? data.total_pages : 50;
+                    }
+                })
+            }
         });
     }
 
@@ -55,6 +60,14 @@ export class MoviesComponent implements OnInit, OnDestroy, AfterViewInit {
             return `https://image.tmdb.org/t/p/w500${posterPath}`;            
         }
         return 'https://via.placeholder.com/200x316?text=No+Preview'
+    }
+
+    public onPageChange(change: any): void {
+        this.httpService.getTopRated('movie', change.page + 1).subscribe((data: ResponseDataModel) => {
+            this.currentPage = change.page + 1;
+            this.totalPagesCount = data.total_pages < 50 ? data.total_pages : 50;
+            this.movies = data.results!;
+        });
     }
 
 }
