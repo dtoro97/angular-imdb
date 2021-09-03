@@ -4,8 +4,12 @@
     width: 100%;
     background-color: #{$header-background-color};
     height: #{$header-height};
-    font-size: 1.4rem;
     border-bottom: 1px solid rgba(255,255,255,.1);
+
+    .header--content {
+        max-width: 1200px;
+        width: 100%; 
+    }
 
     a {
         text-decoration: none;
@@ -19,8 +23,7 @@
     &-menu {
         list-style: none;
         width: #{$header-menu-width};
-        z-index: 0;
-        
+
         a {
             color: white;
             text-decoration: none;
@@ -39,7 +42,7 @@
     }
 }
 
-@media (max-width: #{$breakpoint-xs}) {
+@media (max-width: 750px) {
     .header {
         ::ng-deep .hamburger {
             fill: white;
@@ -67,6 +70,7 @@
             background-color: #{$header-background-color};
             transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
             opacity: 0;
+            z-index: 999 !important;
 
             &.shown {
                 transform: translateX(0);

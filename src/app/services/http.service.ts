@@ -12,11 +12,11 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-    public searchMovies(): Observable<ResponseDataModel> {
+    public searchMovies(query: string): Observable<ResponseDataModel> {
         return this.http.get<ResponseDataModel>(API_URL + '/search/movie', {
             params: {
                 api_key: API_KEY,
-                query: 'avengers',
+                query,
             },
         });
     }
@@ -42,6 +42,15 @@ export class HttpService {
             params: {
                 api_key: API_KEY,
             },
+        });
+    }
+
+    public getTopRated(mediaType: string, page = 1): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/${mediaType}/top_rated`, {
+            params: {
+                api_key: API_KEY,
+                page
+            },  
         });
     }
 

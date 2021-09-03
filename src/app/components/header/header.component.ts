@@ -1,16 +1,24 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnDestroy, OnInit {
     public isNavOpened = false;
+    public subscription = new Subscription();
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver.observe([
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  public toggleNav(): void {
+      this.isNavOpened = !this.isNavOpened;
+  }
+
+  public ngOnInit(): void {
+    this.subscription = this.breakpointObserver.observe([
         Breakpoints.HandsetLandscape,
         Breakpoints.HandsetPortrait,
         Breakpoints.XSmall
@@ -19,10 +27,10 @@ export class HeaderComponent {
             this.isNavOpened = false;
         }
     });
-   }
+  }
 
-  public toggleNav(): void {
-      this.isNavOpened = !this.isNavOpened;
+  public ngOnDestroy(): void {
+      this.subscription.unsubscribe();
   }
 
 }

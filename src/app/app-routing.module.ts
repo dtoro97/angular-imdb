@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GenresComponent } from './components/genres/genres.component';
 import { HomeComponent } from './components/home/home.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 const routes: Routes = [
     { path: 'genres', component: GenresComponent},
-    { path: 'home', component: HomeComponent}
+    { path: 'home', component: HomeComponent},
+    { path: 'movies', component: MoviesComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

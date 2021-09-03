@@ -1,10 +1,12 @@
-<div class="header d-flex align-items-center justify-content-between pl-3 pr-3">
-    <a routerLink="/home">MovieApp</a>
-    <app-hamburger (click)="toggleNav()"></app-hamburger>
-    <ul class="header-menu d-flex justify-content-between m-0 p-0" [ngClass]="{'shown' : isNavOpened}">
-        <li><a (click)="toggleNav()" routerLink="/home" routerLinkActive="active-link">Home</a></li>
-        <li>Movies</li>
-        <li>Tv Shows</li>
-        <li><a (click)="toggleNav()" routerLink="/genres" routerLinkActive="active-link">Genres</a></li>
-    </ul>
+<div class="header d-flex align-items-center justify-content-center pl-3 pr-3">
+    <div class="header--content d-flex align-items-center justify-content-between">
+        <a routerLink="/home">MovieApp</a>
+        <app-hamburger (click)="toggleNav()"></app-hamburger>
+        <ul class="header-menu d-flex justify-content-around m-0 p-0" [ngClass]="{'shown' : isNavOpened}">
+            <li><a (click)="toggleNav()" routerLink="/home" routerLinkActive="active-link">Home</a></li>
+            <li><a (click)="toggleNav()" routerLink="/movies" routerLinkActive="active-link">Movies</a></li>
+            <li>Tv Shows</li>
+            <li><a (click)="toggleNav()" routerLink="/genres" routerLinkActive="active-link">Genres</a></li>
+        </ul>
+    </div>
 </div>

@@ -23,7 +23,7 @@ export class LoadingInterceptor implements HttpInterceptor {
 		if (this.requests.length === 0) {
 			setTimeout(() => {
                 this.loadingService.hide();
-            }, 500);
+            }, 1000);
 		}
 	}
 

@@ -13,8 +13,13 @@
                 height: 100%;
                 transition: transform 0.25s ease-in-out;
 
+                .bi-star-fill {
+                    color: gold;
+                }
+        
+
                 &:hover {
-                    transform: scale(1.01);
+                    transform: scale(1.05);
                 }
 
                 img {
