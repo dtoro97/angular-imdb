@@ -23,9 +23,11 @@ import { CardComponent } from './components/card/card.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { CardGridComponent } from './components/card-grid/card-grid.component';
+import { ShowsComponent } from './components/shows/shows.component';
 
 @NgModule({
-	declarations: [AppComponent, LoadingComponent, HeaderComponent, HamburgerComponent, GenresComponent, HomeComponent, FooterComponent, MoviesComponent, CardComponent, SkeletonComponent],
+	declarations: [AppComponent, LoadingComponent, HeaderComponent, HamburgerComponent, GenresComponent, HomeComponent, FooterComponent, MoviesComponent, CardComponent, SkeletonComponent, CardGridComponent, ShowsComponent],
 	imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgxSkeletonLoaderModule, NgbModule, PaginatorModule, BrowserAnimationsModule, MatProgressBarModule, MatProgressSpinnerModule, CarouselModule, InputTextModule],
 	providers: [{provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
 	bootstrap: [AppComponent],

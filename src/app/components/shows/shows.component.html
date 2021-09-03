@@ -1,15 +1,15 @@
-<div class="movies-wrapper d-flex flex-column pb-5">
-    <div class="movies-title pt-5">
-        <h1 class="pb-3 pl-3">Movies</h1>
+<div class="shows-wrapper d-flex flex-column pb-5">
+    <div class="shows-title pt-5">
+        <h1 class="pb-3 pl-3">TV Shows</h1>
     </div>
     <div class="search-container d-flex justify-content-center">
         <span class="search p-input-icon-right ml-5 mr-5">
             <i class="pi pi-search"></i>
-            <input type="text" #searchBox placeholder="Search Movies" pInputText [formControl]="searchBoxControl"/>
+            <input type="text" #searchBox placeholder="Search TV Shows" pInputText [formControl]="searchBoxControl"/>
         </span>
     </div>
     <app-skeleton *ngIf="loading" class="pt-5"></app-skeleton>
-    <app-card-grid [items]="movies" *ngIf="!loading"></app-card-grid>
+    <app-card-grid [items]="shows" *ngIf="!loading"></app-card-grid>
     <div class="movies-paginator" *ngIf="shouldShowPaginator">
         <p-paginator 
             [rows]="18" 

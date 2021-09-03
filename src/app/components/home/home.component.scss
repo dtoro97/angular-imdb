@@ -23,12 +23,14 @@
                 outline: none;
 
                 &:hover {
-                    background-color: #{$genre-card-background-color};
+                    color: #495057;
+                    border-color: transparent;
+                    background: #e9ecef;
                 }
-
-                &:active {
-                    outline: none;
-                    border: none;
+    
+                &:focus {
+                    box-shadow: 0 0 0 0.2rem #495057;
+                    border-color: #{$genre-card-background-color-hover};
                 }
             }
         }

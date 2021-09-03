@@ -1,13 +1,13 @@
 @import '../../../styles/variables.scss';
 
-.movies-wrapper {
+.shows-wrapper {
     min-height: calc(100vh - #{$header-height} - #{$footer-height});
 
     .loading-skeleton {
         max-width: 1700px;
     }
 
-    .movies-title {
+    .shows-title {
         margin-left: auto;
         margin-right: auto;
         width: 100%;

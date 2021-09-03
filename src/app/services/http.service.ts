@@ -12,8 +12,8 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-    public searchMovies(query: string): Observable<ResponseDataModel> {
-        return this.http.get<ResponseDataModel>(API_URL + '/search/movie', {
+    public search(query: string, type: string): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(API_URL + '/search/' + type, {
             params: {
                 api_key: API_KEY,
                 query,
