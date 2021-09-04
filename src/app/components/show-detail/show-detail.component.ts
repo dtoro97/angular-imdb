@@ -2,24 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { MovieDetails } from 'src/app/models/movie-details';
 import { ResponseDataModel } from 'src/app/models/response-data-model';
 import { ResultModel } from 'src/app/models/result-model';
+import { TvDetails } from 'src/app/models/tv-details';
 import { HttpService } from 'src/app/services/http.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
-  selector: 'app-movie-detail',
-  templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.scss']
+  selector: 'app-show-detail',
+  templateUrl: './show-detail.component.html',
+  styleUrls: ['./show-detail.component.scss']
 })
-export class MovieDetailComponent implements OnInit {
-
+export class ShowDetailComponent implements OnInit {
     public loading = true;
     public sub = new Subscription();
-    public item?: MovieDetails;
+    public item?: TvDetails;
     public id!: number;
-    public similarMovies?: ResultModel[];
+    public similarShows?: ResultModel[];
     public responsiveOptions = [
         {
             breakpoint: '1600px',
@@ -64,11 +63,11 @@ export class MovieDetailComponent implements OnInit {
                 id: Number(routeparams.id),
                 type: String(routeparams.type)
             };
-            this.http.getMovieDetails(item.id).subscribe((data: MovieDetails) => {
+            this.http.getTvDetails(item.id).subscribe((data: TvDetails) => {
+                console.log(data);
                 this.item = data;
                 this.id = item.id;
-                console.log(data);
-                this.getSimilarMovies();
+                this.getSimilarShows();
             });
         })
 
@@ -85,12 +84,11 @@ export class MovieDetailComponent implements OnInit {
         return 'http://placehold.jp/8a8a8a/fcfcfc/500x750.jpg?text=No%20Poster'
     }
 
-    public getSimilarMovies(): void {
-        this.http.getSimilarMovies(this.id).subscribe((data: ResponseDataModel) => {
+    public getSimilarShows(): void {
+        this.http.getSimilarShows(this.id).subscribe((data: ResponseDataModel) => {
             if (data.results) {
-                this.similarMovies = data.results;
+                this.similarShows = data.results;
             }
         })
     }
-
 }

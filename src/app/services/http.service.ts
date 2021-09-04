@@ -107,4 +107,12 @@ export class HttpService {
         });
     }
 
+    public getSimilarShows(id: number): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/tv/${id}/similar`, {
+            params : {
+                api_key: API_KEY
+            }
+        });
+    }
+
 }

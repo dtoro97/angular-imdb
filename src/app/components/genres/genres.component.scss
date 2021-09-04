@@ -66,3 +66,9 @@
         }
     }
 }
+
+@media (max-width: #{$breakpoint-xs}) {
+    h1 {
+        width: 100%;
+    }
+}

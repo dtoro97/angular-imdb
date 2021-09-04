@@ -3,7 +3,7 @@
 .detail-view-container {
     min-height: calc(100vh - #{$footer-height} - #{$header-height});
 
-    .movie-details-container {
+    .show-details-container {
         margin: auto;
         width: 100%;
         max-width: 1700px;
@@ -81,13 +81,13 @@
 
     .header-container {
         
-        .movie-info {
+        .show-info {
             padding-left: 10rem;
             z-index: 10;
             background: linear-gradient(90deg,#111 30%,transparent);
             min-height: 30rem;
 
-            .movie-header {
+            .show-header {
                 width: 100%;
                 max-width: 30rem;
 
@@ -104,7 +104,7 @@
                 }
             }
 
-            .movie-footer {
+            .show-footer {
                 width: 50%;
 
                 .btn-trailer {
@@ -126,7 +126,7 @@
             }
         }
 
-        .movie-backdrop {
+        .show-backdrop {
             box-shadow:inset 0 0 0 2000px rgba(26, 26, 26, 0.2);
             position: absolute;
             right: 0;
@@ -140,10 +140,10 @@
 
 
 @media (max-width: #{$breakpoint-xs}) {
-    .movie-info {
+    .show-info {
         padding-left: 1.5rem !important;
 
-        .movie-footer {
+        .show-footer {
             width: 80% !important;
             p {
                 text-align: justify;
@@ -151,7 +151,7 @@
         }
     }
 
-    .movie-backdrop {
+    .show-backdrop {
         background-position: 50% 50%!important;
     }
 

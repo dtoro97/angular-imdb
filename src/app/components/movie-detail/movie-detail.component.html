@@ -15,8 +15,44 @@
         </div>
         <div class="movie-backdrop" [style.background-image]="getBackgroundUrl(item.backdrop_path)"></div>
     </div>
+    <div class="movie-details-container d-flex flex-row pt-5 pl-5 pr-5" *ngIf="!loading && item">
+        <div class="poster-area">
+            <img src="{{getPosterUrl(item.poster_path)}}">
+        </div>
+        <div class="details-area d-flex flex-column pl-5 pr-5">
+            <div class="plot">
+                <h2>Plot</h2>
+                <p>{{item.overview}}</p>
+            </div>
+            <ul class="details-list pl-0">
+                <li class="detail-row">
+                    <span class="label">Release date:</span>
+                    <span class="value">{{item.release_date | date : 'mediumDate'}}</span>
+                </li>
+                <li class="detail-row">
+                    <span class="label">Runtime:</span>
+                    <span class="value">{{item.runtime | m2h}}</span>
+                </li>
+                <li class="detail-row">
+                    <span class="label">Score:</span>
+                    <span class="value"><i class="bi bi-star-fill"></i>&nbsp;{{item.vote_average}} ({{item.vote_count}})</span>
+                </li>
+                <li class="detail-row">
+                    <span class="label">Budget:</span>
+                    <span class="value">{{item.budget | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
+                </li>
+                <li class="detail-row">
+                    <span class="label">Revenue:</span>
+                    <span class="value">{{item.revenue | currency: 'USD' : 'symbol' : '1.0-0'}}</span>
+                </li>
+            </ul>
+            <div class="genre-list">
+                <button class="btn-genre" *ngFor="let genre of item.genres" routerLink="/genres/{{genre.id}}/{{genre.name}}">{{genre.name}}</button>
+            </div>
+        </div>
+    </div>
     <div class="carousel-container pt-5 pb-5" *ngIf="similarMovies && !loading">
-        <h2>Similar Movies</h2>
+        <h2 class="pl-3 pb-3">Similar Movies</h2>
         <p-carousel [value]="similarMovies!"
             [numVisible]="6" 
             [numScroll]="6" 

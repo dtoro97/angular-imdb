@@ -70,10 +70,12 @@
             background-color: #{$header-background-color};
             transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
             opacity: 0;
+            display: none !important;
 
             &.shown {
                 transform: translateX(0);
                 opacity: 1;
+                display: flex !important;
                 z-index: 999 !important;
             }
 
