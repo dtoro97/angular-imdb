@@ -57,6 +57,10 @@
     color: white;
     font-weight: 400;
 
+    button {
+        margin: 0;
+    }
+
     .p-paginator-page {
         &.p-highlight {
             background-color: #{$genre-card-background-color-hover} !important;

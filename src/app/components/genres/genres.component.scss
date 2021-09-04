@@ -27,19 +27,11 @@
             border: none;
             transition: 0.15s background-color ease-in-out;
             width: 240px;
-
+            text-decoration: none;
             &:hover {
                 background-color: #{$genre-card-background-color-hover};
-            }
-
-            a {
                 color: white;
                 text-decoration: none;
-
-                &:hover {
-                    color: white;
-                    text-decoration: none;
-                }
             }
         }
     }

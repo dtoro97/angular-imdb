@@ -6,9 +6,9 @@
         </div>
         <div class="genre-wrapper" *ngIf="tvGenres">
             <div class="genre-grid">
-            <button class="genre-card m-2" *ngFor="let genre of tvGenres">
-                <a routerLink="/genres/{{genre.id}}/{{genre.name}}">{{genre.name}}</a>
-            </button>
+            <a class="genre-card d-flex justify-content-center align-items-center m-2" *ngFor="let genre of tvGenres" routerLink="/genres/{{genre.id}}/{{genre.name}}">
+                {{genre.name}}
+            </a>
             </div>
         </div>
     </ng-container>
