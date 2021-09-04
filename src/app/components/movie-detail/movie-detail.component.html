@@ -51,6 +51,18 @@
             </div>
         </div>
     </div>
+    <div class="cast-container pt-5" *ngIf="credits.length > 0  && !loading">
+        <h2 class="pl-3 pb-3">Cast</h2>
+        <p-carousel [value]="credits"
+            [numVisible]="6" 
+            [numScroll]="6" 
+            [responsiveOptions]="responsiveOptions" 
+            [showIndicators]="false">
+            <ng-template let-actor pTemplate="item">
+                <app-card [item]="actor" [type]="'actors'" [isPerson]="true"></app-card>
+            </ng-template>
+        </p-carousel>
+    </div>
     <div class="carousel-container pt-5 pb-5" *ngIf="similarMovies && !loading">
         <h2 class="pl-3 pb-3">Similar Movies</h2>
         <p-carousel [value]="similarMovies!"

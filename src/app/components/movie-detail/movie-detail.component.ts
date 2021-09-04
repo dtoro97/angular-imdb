@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { RESPONSIVE_OPTIONS } from 'src/app/config';
+import { CastEntity, CastResponseData } from 'src/app/models/cast-response-data';
 import { MovieDetails } from 'src/app/models/movie-details';
 import { ResponseDataModel } from 'src/app/models/response-data-model';
 import { ResultModel } from 'src/app/models/result-model';
@@ -16,37 +18,12 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class MovieDetailComponent implements OnInit {
 
     public loading = true;
-    public sub = new Subscription();
     public item?: MovieDetails;
     public id!: number;
     public similarMovies?: ResultModel[];
-    public responsiveOptions = [
-        {
-            breakpoint: '1600px',
-            numVisible: 5,
-            numScroll: 5
-        },
-        {
-            breakpoint: '1500px',
-            numVisible: 4,
-            numScroll: 4
-        },
-        {
-            breakpoint: '1400px',
-            numVisible: 3,
-            numScroll: 3
-        },
-        {
-            breakpoint: '920px',
-            numVisible: 2,
-            numScroll: 2
-        },
-        {
-            breakpoint: '540px',
-            numVisible: 1,
-            numScroll: 1
-        }
-    ];
+    public responsiveOptions = RESPONSIVE_OPTIONS;
+    public credits: CastEntity[] = [];
+    private sub = new Subscription();
 
     constructor(
         private route: ActivatedRoute,
@@ -67,8 +44,10 @@ export class MovieDetailComponent implements OnInit {
             this.http.getMovieDetails(item.id).subscribe((data: MovieDetails) => {
                 this.item = data;
                 this.id = item.id;
-                console.log(data);
                 this.getSimilarMovies();
+                this.http.getCreditByMovie(item.id).subscribe((data: CastResponseData) => {
+                    this.credits = data.cast!;
+                })
             });
         })
 
@@ -91,6 +70,10 @@ export class MovieDetailComponent implements OnInit {
                 this.similarMovies = data.results;
             }
         })
+    }
+    
+    public ngOnDestroy(): void {
+        this.sub.unsubscribe();
     }
 
 }

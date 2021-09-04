@@ -3,6 +3,13 @@
 .detail-view-container {
     min-height: calc(100vh - #{$footer-height} - #{$header-height});
 
+    .cast-container {
+        margin: auto;
+        width: 100%;
+        max-width: 1700px;
+        max-height: 500px;
+    }
+
     .movie-details-container {
         margin: auto;
         width: 100%;

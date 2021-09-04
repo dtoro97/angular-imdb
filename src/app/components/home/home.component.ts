@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { RESPONSIVE_OPTIONS } from 'src/app/config';
 import { ResponseDataModel } from 'src/app/models/response-data-model';
 import { ResultModel } from 'src/app/models/result-model';
 import { HttpService } from 'src/app/services/http.service';
@@ -13,7 +14,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class HomeComponent implements OnInit {
 
-    public responsiveOptions: any[] = [];
+    public responsiveOptions = RESPONSIVE_OPTIONS;
     public loading = true;
     public trendingMovies?: ResultModel[] | null;
     public trendingTvShows?: ResultModel[] | null; 
@@ -23,39 +24,10 @@ export class HomeComponent implements OnInit {
         private httpService: HttpService,
         private loadingService: LoadingService
         ) {
-            this.responsiveOptions = [
-                {
-                    breakpoint: '1600px',
-                    numVisible: 5,
-                    numScroll: 5
-                },
-                {
-                    breakpoint: '1500px',
-                    numVisible: 4,
-                    numScroll: 4
-                },
-                {
-                    breakpoint: '1400px',
-                    numVisible: 3,
-                    numScroll: 3
-                },
-                {
-                    breakpoint: '920px',
-                    numVisible: 2,
-                    numScroll: 2
-                },
-                {
-                    breakpoint: '540px',
-                    numVisible: 1,
-                    numScroll: 1
-                }
-            ];
             this.subscriptions = [this.loadingService.status$.pipe(debounceTime(0)).subscribe(
                 (loading: boolean) => {
                     this.loading = loading;
                 })];
-
-
         }
 
     ngOnInit(): void {

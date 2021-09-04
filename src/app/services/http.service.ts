@@ -7,6 +7,7 @@ import { GenreDataModel } from '../models/genre-model';
 import { MovieDetails } from '../models/movie-details';
 import { TvDetails } from '../models/tv-details';
 import { ResultModel } from '../models/result-model';
+import { CastResponseData } from '../models/cast-response-data';
 
 @Injectable({
   providedIn: 'root'
@@ -115,4 +116,19 @@ export class HttpService {
         });
     }
 
+    public getCreditByMovie(id: number): Observable<CastResponseData> {
+        return this.http.get<any>(`${API_URL}/movie/${id}/credits`, {
+            params: {
+                api_key: API_KEY
+            }
+        });
+    }
+
+    public getCreditByShow(id: number): Observable<CastResponseData> {
+        return this.http.get<any>(`${API_URL}/tv/${id}/credits`, {
+            params: {
+                api_key: API_KEY
+            }
+        });
+    }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { RESPONSIVE_OPTIONS } from 'src/app/config';
+import { CastEntity, CastResponseData } from 'src/app/models/cast-response-data';
 import { ResponseDataModel } from 'src/app/models/response-data-model';
 import { ResultModel } from 'src/app/models/result-model';
 import { TvDetails } from 'src/app/models/tv-details';
@@ -19,33 +21,8 @@ export class ShowDetailComponent implements OnInit {
     public item?: TvDetails;
     public id!: number;
     public similarShows?: ResultModel[];
-    public responsiveOptions = [
-        {
-            breakpoint: '1600px',
-            numVisible: 5,
-            numScroll: 5
-        },
-        {
-            breakpoint: '1500px',
-            numVisible: 4,
-            numScroll: 4
-        },
-        {
-            breakpoint: '1400px',
-            numVisible: 3,
-            numScroll: 3
-        },
-        {
-            breakpoint: '920px',
-            numVisible: 2,
-            numScroll: 2
-        },
-        {
-            breakpoint: '540px',
-            numVisible: 1,
-            numScroll: 1
-        }
-    ];
+    public responsiveOptions = RESPONSIVE_OPTIONS;
+    public credits: CastEntity[] = [];
 
     constructor(
         private route: ActivatedRoute,
@@ -64,11 +41,13 @@ export class ShowDetailComponent implements OnInit {
                 type: String(routeparams.type)
             };
             this.http.getTvDetails(item.id).subscribe((data: TvDetails) => {
-                console.log(data);
                 this.item = data;
                 this.id = item.id;
                 this.getSimilarShows();
             });
+            this.http.getCreditByShow(item.id).subscribe((data: CastResponseData) => {
+                this.credits = data.cast!;
+            })
         })
 
     }

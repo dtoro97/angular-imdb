@@ -3,6 +3,12 @@
 .detail-view-container {
     min-height: calc(100vh - #{$footer-height} - #{$header-height});
 
+    .cast-container {
+        margin: auto;
+        width: 100%;
+        max-width: 1700px;
+    }
+
     .show-details-container {
         margin: auto;
         width: 100%;

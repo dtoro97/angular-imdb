@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ResultModel } from 'src/app/models/result-model';
 
 @Component({
   selector: 'app-card',
@@ -7,8 +6,10 @@ import { ResultModel } from 'src/app/models/result-model';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-    @Input() public item?: ResultModel;
+    @Input() public item?: any;
     @Input() public type?: string;
+    @Input() public isPerson = false;
+
     constructor() { }
 
     ngOnInit(): void {

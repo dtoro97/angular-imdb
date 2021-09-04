@@ -1,7 +1,7 @@
 <div class="card-item" *ngIf="item">
-    <img class="pb-3" src="{{getImgUrl(item.poster_path)}}" routerLink="/{{type}}/{{item.id}}">
+    <img class="pb-3" src="{{getImgUrl(item.poster_path || item.profile_path)}}" routerLink="/{{type}}/{{item.id}}">
     <div class="card__info d-flex flex-column pl-3 pr-3 pb-3 pt-3">
-        <div class="d-flex justify-content-between flex-row">
+        <div class="d-flex justify-content-between flex-row" *ngIf="!isPerson">
             <span class="pb-3"><i class="bi bi-star-fill"></i>&nbsp;{{item.vote_average}}</span>
             <span class="font-weight-light">{{(item.release_date || item.first_air_date) | date: 'yyyy'}}</span>
         </div>
