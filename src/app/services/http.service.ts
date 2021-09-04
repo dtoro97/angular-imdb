@@ -54,4 +54,23 @@ export class HttpService {
         });
     }
 
+    public getMoviesByGenre(genreId: number): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/genre/${genreId}/movies`, {
+            params: {
+                api_key: API_KEY
+            },
+        });
+    }
+
+    public getShowsByGenre(genreId: number): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/discover/tv`, {
+            params: {
+                api_key: API_KEY,
+                with_genres: genreId,
+                sort_by: 'popularity.desc',
+                page: 1
+            },
+        });
+    }
+
 }

@@ -9,7 +9,7 @@
         </span>
     </div>
     <app-skeleton *ngIf="loading" class="pt-5"></app-skeleton>
-    <app-card-grid [items]="movies" *ngIf="!loading"></app-card-grid>
+    <app-card-grid class="pt-5" [items]="movies" *ngIf="!loading"></app-card-grid>
     <div class="movies-paginator" *ngIf="shouldShowPaginator">
         <p-paginator 
             [rows]="18" 

@@ -1,17 +1,14 @@
 <app-loading *ngIf="loading"></app-loading>
-<div class="genre-page d-flex flex-column align-items-center pt-3 pb-3">
+<div class="genre-page d-flex flex-column align-items-center pt-5 pb-3">
     <ng-container *ngIf="!loading">
-        <h1>Browse Genres</h1>
-        <div class="genre-wrapper" *ngIf="tvGenres">
-            <h2>TV Genres</h2>
-            <div class="genre-grid">
-                <button class="genre-card m-2" *ngFor="let genre of tvGenres">{{genre.name}}</button>
-            </div>
+        <div class="genre-page-title" *ngIf="!loading">
+            <h1 class="pb-3 pl-3">Browse Genres</h1>
         </div>
-        <div class="genre-wrapper" *ngIf="movieGenres">
-            <h2>Movie Genres</h2>
+        <div class="genre-wrapper" *ngIf="tvGenres">
             <div class="genre-grid">
-                <button class="genre-card m-2" *ngFor="let genre of movieGenres">{{genre.name}}</button>
+            <button class="genre-card m-2" *ngFor="let genre of tvGenres">
+                <a routerLink="/genres/{{genre.id}}/{{genre.name}}">{{genre.name}}</a>
+            </button>
             </div>
         </div>
     </ng-container>

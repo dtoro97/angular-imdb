@@ -3,10 +3,6 @@
 .genre-page {
     min-height: calc(100vh - #{$footer-height} - #{$header-height});
 
-    h1 {
-        font-size: 3rem;
-    }
-
     .genre-wrapper {
         max-width: #{$max-genre-wrapper-width};
 
@@ -34,6 +30,16 @@
 
             &:hover {
                 background-color: #{$genre-card-background-color-hover};
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+
+                &:hover {
+                    color: white;
+                    text-decoration: none;
+                }
             }
         }
     }

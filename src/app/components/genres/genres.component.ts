@@ -4,6 +4,7 @@ import { debounceTime } from 'rxjs/operators';
 import { Genre, GenreDataModel } from 'src/app/models/genre-model';
 import { HttpService } from 'src/app/services/http.service';
 import { LoadingService } from 'src/app/services/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-genres',
@@ -18,7 +19,8 @@ export class GenresComponent implements OnInit {
 
     constructor(
         private httpService: HttpService,
-        private loadingService: LoadingService
+        private loadingService: LoadingService,
+        private router: Router
         ) { 
             this.loadingService.status$.pipe(debounceTime(0)).subscribe(
                 (loading: boolean) => {
@@ -28,8 +30,10 @@ export class GenresComponent implements OnInit {
         }
 
     public ngOnInit(): void {
-        this.httpService.getTvGenres().subscribe((data: GenreDataModel) => this.tvGenres = data.genres);
-        this.httpService.getMovieGenres().subscribe((data: GenreDataModel) => this.movieGenres = data.genres);
+        this.httpService.getMovieGenres().subscribe((data: GenreDataModel) => {
+            this.tvGenres = data.genres;
+            this.movieGenres = data.genres;
+        });
     }
 
     public ngOnDestroy(): void {
