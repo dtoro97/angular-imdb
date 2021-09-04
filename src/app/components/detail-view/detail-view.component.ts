@@ -4,23 +4,22 @@ import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { RESPONSIVE_OPTIONS } from 'src/app/config';
 import { CastEntity, CastResponseData } from 'src/app/models/cast-response-data';
-import { ResponseDataModel } from 'src/app/models/response-data-model';
-import { ResultModel } from 'src/app/models/result-model';
-import { TvDetails } from 'src/app/models/tv-details';
 import { HttpService } from 'src/app/services/http.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
-  selector: 'app-show-detail',
-  templateUrl: './show-detail.component.html',
-  styleUrls: ['./show-detail.component.scss']
+  selector: 'app-detail-view',
+  templateUrl: './detail-view.component.html',
+  styleUrls: ['./detail-view.component.scss']
 })
-export class ShowDetailComponent implements OnInit {
+export class DetailViewComponent implements OnInit {
+
+    public isMovies = true;
     public loading = true;
     public sub = new Subscription();
-    public item?: TvDetails;
+    public item?: any;
     public id!: number;
-    public similarShows?: ResultModel[];
+    public similar?: any[] = [];
     public responsiveOptions = RESPONSIVE_OPTIONS;
     public credits: CastEntity[] = [];
 
@@ -40,14 +39,9 @@ export class ShowDetailComponent implements OnInit {
                 id: Number(routeparams.id),
                 type: String(routeparams.type)
             };
-            this.http.getTvDetails(item.id).subscribe((data: TvDetails) => {
-                this.item = data;
-                this.id = item.id;
-                this.getSimilarShows();
-            });
-            this.http.getCreditByShow(item.id).subscribe((data: CastResponseData) => {
-                this.credits = data.cast!;
-            })
+            console.log(item);
+            this.isMovies = item.type === 'movies';
+            this.loadData(item);
         })
 
     }
@@ -63,11 +57,17 @@ export class ShowDetailComponent implements OnInit {
         return 'http://placehold.jp/8a8a8a/fcfcfc/500x750.jpg?text=No%20Poster'
     }
 
-    public getSimilarShows(): void {
-        this.http.getSimilarShows(this.id).subscribe((data: ResponseDataModel) => {
-            if (data.results) {
-                this.similarShows = data.results;
-            }
+    public loadData(item: any): void {
+        this.http.getDetails(item.type, item.id).subscribe((data: any) => {
+            this.item = data;
+            this.id = item.id;
+            this.http.getSimilar(item.type, item.id).subscribe((data: any) => {
+                this.similar = data.results!;
+            })
+        });
+        this.http.getCredit(item.type, item.id).subscribe((data: CastResponseData) => {
+            this.credits = data.cast!;
         })
     }
+
 }

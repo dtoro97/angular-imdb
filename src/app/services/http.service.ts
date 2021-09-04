@@ -94,7 +94,7 @@ export class HttpService {
     }
 
     public getDetails(type: string, id: number): Observable<any> {
-        if (type === 'movie') {
+        if (type === 'movies') {
             return this.getMovieDetails(id);
         }
         return this.getTvDetails(id);
@@ -116,6 +116,13 @@ export class HttpService {
         });
     }
 
+    public getSimilar(type: string, id: number): Observable<any> {
+        if (type === 'movies') {
+            return this.getSimilarMovies(id);
+        }
+        return this.getSimilarShows(id);
+    }
+
     public getCreditByMovie(id: number): Observable<CastResponseData> {
         return this.http.get<any>(`${API_URL}/movie/${id}/credits`, {
             params: {
@@ -130,5 +137,12 @@ export class HttpService {
                 api_key: API_KEY
             }
         });
+    }
+
+    public getCredit(type: string, id: number): Observable<CastResponseData> {
+        if (type === 'movies') {
+            return this.getCreditByMovie(id);
+        }
+        return this.getCreditByShow(id);
     }
 }

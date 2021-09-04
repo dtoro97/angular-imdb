@@ -9,7 +9,7 @@
         max-width: 1700px;
     }
 
-    .show-details-container {
+    .details-container {
         margin: auto;
         width: 100%;
         max-width: 1700px;
@@ -87,13 +87,13 @@
 
     .header-container {
         
-        .show-info {
+        .detail-info {
             padding-left: 10rem;
             z-index: 10;
             background: linear-gradient(90deg,#111 30%,transparent);
             min-height: 30rem;
 
-            .show-header {
+            .detail-header {
                 width: 100%;
                 max-width: 30rem;
 
@@ -110,7 +110,7 @@
                 }
             }
 
-            .show-footer {
+            .detail-footer {
                 width: 50%;
 
                 .btn-trailer {
@@ -132,7 +132,7 @@
             }
         }
 
-        .show-backdrop {
+        .detail-backdrop {
             box-shadow:inset 0 0 0 2000px rgba(26, 26, 26, 0.2);
             position: absolute;
             right: 0;
@@ -146,10 +146,10 @@
 
 
 @media (max-width: #{$breakpoint-xs}) {
-    .show-info {
+    .detail-info {
         padding-left: 1.5rem !important;
 
-        .show-footer {
+        .detail-footer {
             width: 80% !important;
             p {
                 text-align: justify;
@@ -157,7 +157,7 @@
         }
     }
 
-    .show-backdrop {
+    .detail-backdrop {
         background-position: 50% 50%!important;
     }
 
