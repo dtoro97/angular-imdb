@@ -7,6 +7,7 @@ import { ResultModel } from 'src/app/models/result-model';
   styleUrls: ['./card-grid.component.scss']
 })
 export class CardGridComponent implements OnInit {
+    @Input() public type?: string;
     @Input() public items?: ResultModel[];
     constructor() { }
 

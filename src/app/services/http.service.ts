@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { API_KEY, API_URL } from '../config';
 import { ResponseDataModel } from '../models/response-data-model';
 import { GenreDataModel } from '../models/genre-model';
+import { MovieDetails } from '../models/movie-details';
+import { TvDetails } from '../models/tv-details';
+import { ResultModel } from '../models/result-model';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +73,37 @@ export class HttpService {
                 sort_by: 'popularity.desc',
                 page: 1
             },
+        });
+    }
+
+    public getMovieDetails(id: number): Observable<MovieDetails> {
+        return this.http.get<MovieDetails>(`${API_URL}/movie/${id}`, {
+            params: {
+                api_key: API_KEY
+            }
+        });
+    }
+
+    public getTvDetails(id: number): Observable<TvDetails> {
+        return this.http.get<TvDetails>(`${API_URL}/tv/${id}`, {
+            params: {
+                api_key: API_KEY
+            }
+        });
+    }
+
+    public getDetails(type: string, id: number): Observable<any> {
+        if (type === 'movie') {
+            return this.getMovieDetails(id);
+        }
+        return this.getTvDetails(id);
+    }
+
+    public getSimilarMovies(id: number): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/movie/${id}/similar`, {
+            params : {
+                api_key: API_KEY
+            }
         });
     }
 

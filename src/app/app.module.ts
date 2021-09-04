@@ -26,9 +26,11 @@ import { PaginatorModule } from 'primeng/paginator';
 import { CardGridComponent } from './components/card-grid/card-grid.component';
 import { ShowsComponent } from './components/shows/shows.component';
 import { MovieGenreComponent } from './components/movie-genre/movie-genre.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { MinutesToHours } from './pipes/time.pipe';
 
 @NgModule({
-	declarations: [AppComponent, LoadingComponent, HeaderComponent, HamburgerComponent, GenresComponent, HomeComponent, FooterComponent, MoviesComponent, CardComponent, SkeletonComponent, CardGridComponent, ShowsComponent, MovieGenreComponent],
+	declarations: [AppComponent, LoadingComponent, HeaderComponent, HamburgerComponent, GenresComponent, HomeComponent, MinutesToHours, FooterComponent, MoviesComponent, CardComponent, SkeletonComponent, CardGridComponent, ShowsComponent, MovieGenreComponent, MovieDetailComponent],
 	imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgxSkeletonLoaderModule, NgbModule, PaginatorModule, BrowserAnimationsModule, MatProgressBarModule, MatProgressSpinnerModule, CarouselModule, InputTextModule],
 	providers: [{provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
 	bootstrap: [AppComponent],

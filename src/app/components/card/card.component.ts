@@ -8,6 +8,7 @@ import { ResultModel } from 'src/app/models/result-model';
 })
 export class CardComponent implements OnInit {
     @Input() public item?: ResultModel;
+    @Input() public type?: string;
     constructor() { }
 
     ngOnInit(): void {

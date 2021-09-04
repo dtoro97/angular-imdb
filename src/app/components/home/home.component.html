@@ -9,7 +9,7 @@
                         [showIndicators]="false"
                         >
                 <ng-template let-movie pTemplate="item">
-                    <app-card [item]="movie"></app-card>
+                    <app-card [item]="movie" [type]="'movies'"></app-card>
                 </ng-template>
             </p-carousel>
         </div>
@@ -22,7 +22,7 @@
                         [showIndicators]="false"
                         >
                 <ng-template let-tvShow pTemplate="item">
-                    <app-card [item]="tvShow"></app-card>
+                    <app-card [item]="tvShow" [type]="'shows'"></app-card>
                 </ng-template>
             </p-carousel>
         </div>
