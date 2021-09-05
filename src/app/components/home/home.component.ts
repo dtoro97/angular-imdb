@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.httpService.getTrending('movie').subscribe((data: ResponseDataModel) => {
-            console.log(data);
             this.trendingMovies = data.results;
         })
         this.httpService.getTrending('tv').subscribe((data: ResponseDataModel) => {

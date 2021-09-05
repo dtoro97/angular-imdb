@@ -39,7 +39,6 @@ export class DetailViewComponent implements OnInit {
                 id: Number(routeparams.id),
                 type: String(routeparams.type)
             };
-            console.log(item);
             this.isMovies = item.type === 'movies';
             this.loadData(item);
         })
