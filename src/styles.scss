@@ -43,6 +43,9 @@ body {
 .resize-animation-stopper * {
     animation: none !important;
     transition: none !important;
-  }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
+
+
+.page-wrapper {
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}

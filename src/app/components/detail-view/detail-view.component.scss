@@ -1,8 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.detail-view-container {
-    min-height: calc(100vh - #{$footer-height} - #{$header-height});
-
+.page-wrapper {
     .cast-container {
         margin: auto;
         width: 100%;

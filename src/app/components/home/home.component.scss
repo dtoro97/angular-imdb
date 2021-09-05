@@ -1,8 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.home-wrapper {
-    min-height: calc(100vh - #{$header-height} - #{$footer-height});
-
+.page-wrapper {
         .carousel-container {
             margin: auto;
             width: 100%;

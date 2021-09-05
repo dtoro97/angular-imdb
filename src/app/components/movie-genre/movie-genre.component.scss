@@ -1,8 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.genre-wrapper {
-    min-height: calc(100vh - #{$header-height} - #{$footer-height});
-
+.page-wrapper {
     .genre-title {
         margin-left: auto;
         margin-right: auto;

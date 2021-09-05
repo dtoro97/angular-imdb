@@ -1,8 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.movies-wrapper {
-    min-height: calc(100vh - #{$header-height} - #{$footer-height});
-
+.page-wrapper {
     .loading-skeleton {
         max-width: 1700px;
     }

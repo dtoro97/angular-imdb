@@ -1,8 +1,8 @@
 <app-loading *ngIf="loading"></app-loading>
-<div class="genre-page d-flex flex-column align-items-center pt-5 pb-3">
+<div class="page-wrapper d-flex flex-column align-items-center pt-5 pb-3">
     <ng-container *ngIf="!loading">
         <h1 class="pb-3 pl-3">Browse Genres</h1>
-        <div class="genre-wrapper" *ngIf="tvGenres">
+        <div class="genre-container" *ngIf="tvGenres">
             <div class="genre-grid">
             <a class="genre-card d-flex justify-content-center align-items-center m-2" *ngFor="let genre of tvGenres" routerLink="/genres/{{genre.id}}/{{genre.name}}">
                 {{genre.name}}

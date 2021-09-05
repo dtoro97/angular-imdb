@@ -1,9 +1,7 @@
 @import '../../../styles/variables.scss';
 
-.genre-page {
-    min-height: calc(100vh - #{$footer-height} - #{$header-height});
-
-    .genre-wrapper {
+.page-wrapper {
+    .genre-container {
         max-width: #{$max-genre-wrapper-width};
 
         h2 {
