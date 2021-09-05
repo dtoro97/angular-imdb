@@ -39,7 +39,7 @@
                     outline: none;
                     border: none;
                     transition: 0.15s background-color ease-in-out;
-                    max-width: 150px;
+                    height: 100%;
                     text-decoration: none;
 
                     &:hover {
@@ -51,6 +51,21 @@
                     &:not(:last-child) {
                         margin-right: 0.5rem;
                     }
+                }
+            }
+            
+            a {
+                max-width: 80px;
+                max-height: 40px;
+                transition: opacity 0.15s ease-in-out;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+
+                svg {
+                    max-width: 80px;
+                    max-height: 40px;
                 }
             }
 
@@ -179,6 +194,12 @@
     .carousel-container {
         h2 {
             padding-left: 4rem !important;
+        }
+    }
+
+    .genre-list {
+        .btn-genre {
+            height: auto !important;
         }
     }
 }

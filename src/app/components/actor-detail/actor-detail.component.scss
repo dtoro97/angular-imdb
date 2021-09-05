@@ -1,0 +1,97 @@
+@import '../../../styles/variables.scss';
+
+.page-wrapper {
+    .actor-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 1700px;
+
+        .actor-card {
+            .avatar-area {
+                width: 20%;
+                max-height: 500px;
+    
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                }
+            }
+
+            .details-area {
+                flex: 1;
+
+                .actor-biography {
+                    max-width: 800px;
+                    margin-bottom: 2rem;
+                }
+                
+                .details-list {
+                    list-style: none;
+                    max-width: 500px;
+    
+                    li {
+                        display: flex;
+                        padding-bottom: 0.7rem;
+    
+                        .label {
+                            flex: 1;
+                        }
+    
+                        .value {
+                            
+                            i {
+                                color: gold;
+                            }
+                        }
+                    }
+                }
+
+                a {
+                    max-width: 80px;
+                    max-height: 40px;
+                    transition: opacity 0.15s ease-in-out;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+
+                    svg {
+                        max-width: 80px;
+                        max-height: 40px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: #{$breakpoint-xs}) {
+    .page-wrapper {
+        .actor-container {
+            padding-left: 0 !important;
+
+            .title {
+                padding-left: 1.5rem;
+            }
+
+            .actor-card {
+                flex-direction: column !important;
+                padding-top: 0.5rem !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+
+                .avatar-area {
+                    width: 100% !important;
+                }
+
+                .details-area {
+                    padding-left: 0.2rem !important;
+                    padding-right: 0.2rem !important;
+                    padding-top: 1rem;
+                }
+            }
+        }
+    }
+} 

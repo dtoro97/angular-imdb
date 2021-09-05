@@ -5,7 +5,7 @@
         max-width: 1700px;
     }
 
-    .movies-title {
+    .title {
         margin-left: auto;
         margin-right: auto;
         width: 100%;
@@ -54,10 +54,6 @@
     background-color: transparent;
     color: white;
     font-weight: 400;
-
-    button {
-        margin: 0;
-    }
 
     .p-paginator-page {
         &.p-highlight {

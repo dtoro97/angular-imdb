@@ -1,21 +1,20 @@
 <div class="page-wrapper d-flex flex-column pb-5">
-    <div class="movies-title pt-5">
-        <h1 class="pb-3 pl-3">Movies</h1>
+    <div class="title pt-5">
+        <h1 class="pb-3 pl-3">{{type === 'movie' ? 'Movies' : 'TV Shows'}}</h1>
     </div>
     <div class="search-container d-flex justify-content-center">
         <span class="search p-input-icon-right ml-5 mr-5">
             <i class="pi pi-search"></i>
-            <input type="text" #searchBox placeholder="Search Movies" pInputText [formControl]="searchBoxControl"/>
+            <input type="text" #searchBox placeholder="Search {{type === 'movie' ? 'Movies' : 'TV Shows'}}" pInputText [formControl]="searchBoxControl"/>
         </span>
     </div>
     <app-skeleton *ngIf="loading" class="pt-5"></app-skeleton>
-    <app-card-grid class="pt-5" [items]="movies" [type]="'movies'" *ngIf="!loading"></app-card-grid>
-    <div class="movies-paginator" *ngIf="shouldShowPaginator">
+    <app-card-grid class="pt-5" [items]="items" [type]="type" *ngIf="!loading"></app-card-grid>
+    <div class="paginator-container" *ngIf="shouldShowPaginator">
         <p-paginator 
             [rows]="18" 
             [totalRecords]="totalPagesCount * 20"
             [alwaysShow]="false"
-            [pageLinkSize]="5"
             [styleClass]="'paginator'"
             (onPageChange)="onPageChange($event)">
     </p-paginator>

@@ -8,6 +8,7 @@ import { MovieDetails } from '../models/movie-details';
 import { TvDetails } from '../models/tv-details';
 import { ResultModel } from '../models/result-model';
 import { CastResponseData } from '../models/cast-response-data';
+import { ActorDetails } from '../models/actor-details';
 
 @Injectable({
   providedIn: 'root'
@@ -94,7 +95,7 @@ export class HttpService {
     }
 
     public getDetails(type: string, id: number): Observable<any> {
-        if (type === 'movies') {
+        if (type === 'movie') {
             return this.getMovieDetails(id);
         }
         return this.getTvDetails(id);
@@ -117,7 +118,7 @@ export class HttpService {
     }
 
     public getSimilar(type: string, id: number): Observable<any> {
-        if (type === 'movies') {
+        if (type === 'movie') {
             return this.getSimilarMovies(id);
         }
         return this.getSimilarShows(id);
@@ -140,9 +141,40 @@ export class HttpService {
     }
 
     public getCredit(type: string, id: number): Observable<CastResponseData> {
-        if (type === 'movies') {
+        if (type === 'movie') {
             return this.getCreditByMovie(id);
         }
         return this.getCreditByShow(id);
     }
+
+    public getActorDetails(id: number): Observable<ActorDetails> {
+        return this.http.get<ActorDetails>(`${API_URL}/person/${id}`, {
+            params: {
+                api_key: API_KEY
+            }
+        });
+    }
+
+    public getMoviesForActor(id: number): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/discover/movie`, {
+            params: {
+                api_key: API_KEY,
+                with_cast: id,
+                sort_by: 'popularity.desc',
+                page: 1
+            },
+        });
+    }
+
+    public getShowsForActor(id: number): Observable<ResponseDataModel> {
+        return this.http.get<ResponseDataModel>(`${API_URL}/discover/tv`, {
+            params: {
+                api_key: API_KEY,
+                with_cast: id,
+                sort_by: 'popularity.desc',
+                page: 1
+            },
+        });
+    }
+
 }

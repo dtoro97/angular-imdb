@@ -13,10 +13,9 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./detail-view.component.scss']
 })
 export class DetailViewComponent implements OnInit {
-
     public isMovies = true;
     public loading = true;
-    public sub = new Subscription();
+    public subscriptions: Subscription[] = [];
     public item?: any;
     public id!: number;
     public similar?: any[] = [];
@@ -30,19 +29,22 @@ export class DetailViewComponent implements OnInit {
         ) { }
 
     ngOnInit(): void {
-        this.sub = this.loadingService.status$.pipe(debounceTime(0)).subscribe(
+        this.subscriptions = [this.loadingService.status$.pipe(debounceTime(0)).subscribe(
             (loading: boolean) => {
                 this.loading = loading;
-            });
+            }),
         this.route.params.subscribe((routeparams: any) => {
             const item = {
                 id: Number(routeparams.id),
                 type: String(routeparams.type)
             };
-            this.isMovies = item.type === 'movies';
+            this.isMovies = item.type === 'movie';
             this.loadData(item);
-        })
+        })];
+    }
 
+    public ngOnDestroy(): void {
+        this.subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
     }
 
     public getBackgroundUrl(url: string | undefined | null): string {

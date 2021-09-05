@@ -4,8 +4,8 @@
         <app-hamburger (click)="toggleNav()"></app-hamburger>
         <ul class="header-menu d-flex justify-content-around m-0 p-0" [ngClass]="{'shown' : isNavOpened}">
             <li><a (click)="toggleNav()" routerLink="/home" routerLinkActive="active-link">Home</a></li>
-            <li><a (click)="toggleNav()" routerLink="/movies" routerLinkActive="active-link">Movies</a></li>
-            <li><a (click)="toggleNav()" routerLink="/shows" routerLinkActive="active-link">Tv Shows</a></li>
+            <li><a (click)="toggleNav()" routerLink="/top/movie" routerLinkActive="active-link">Movies</a></li>
+            <li><a (click)="toggleNav()" routerLink="/top/tv" routerLinkActive="active-link">Tv Shows</a></li>
             <li><a (click)="toggleNav()" routerLink="/genres" routerLinkActive="active-link">Genres</a></li>
         </ul>
     </div>

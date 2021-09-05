@@ -5,10 +5,10 @@
     </div>
     <ng-container *ngIf="!loading && movies.length > 0">
         <h3 class="pl-3">Movies</h3>
-        <app-card-grid [items]="movies" [type]="'movies'"></app-card-grid>
+        <app-card-grid [items]="movies" [type]="'movie'"></app-card-grid>
     </ng-container>
     <ng-container *ngIf="!loading && shows.length > 0">
         <h3 class="pl-3">TV Shows</h3>
-        <app-card-grid [items]="shows" [type]="'shows'"></app-card-grid>
+        <app-card-grid [items]="shows" [type]="'tv'"></app-card-grid>
     </ng-container>
 </div>
