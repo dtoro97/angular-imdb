@@ -28,8 +28,9 @@ import { ShowsComponent } from './components/shows/shows.component';
 import { MovieGenreComponent } from './components/movie-genre/movie-genre.component';
 import { MinutesToHours } from './pipes/time.pipe';
 import { DetailViewComponent } from './components/detail-view/detail-view.component';
+import { ActorDetailComponent } from './components/actor-detail/actor-detail.component';
 @NgModule({
-	declarations: [AppComponent, LoadingComponent, HeaderComponent, HamburgerComponent, GenresComponent, HomeComponent, MinutesToHours, FooterComponent, MoviesComponent, CardComponent, SkeletonComponent, CardGridComponent, ShowsComponent, MovieGenreComponent, DetailViewComponent],
+	declarations: [AppComponent, LoadingComponent, HeaderComponent, HamburgerComponent, GenresComponent, HomeComponent, MinutesToHours, FooterComponent, MoviesComponent, CardComponent, SkeletonComponent, CardGridComponent, ShowsComponent, MovieGenreComponent, DetailViewComponent, ActorDetailComponent],
 	imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgxSkeletonLoaderModule, NgbModule, PaginatorModule, BrowserAnimationsModule, MatProgressBarModule, MatProgressSpinnerModule, CarouselModule, InputTextModule],
 	providers: [{provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}],
 	bootstrap: [AppComponent],
