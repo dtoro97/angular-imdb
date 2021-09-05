@@ -3,9 +3,11 @@
     <ng-container *ngIf="!loading">
         <h1 class="pb-3 pl-3">Browse Genres</h1>
         <div class="genre-container" *ngIf="tvGenres">
-            <div class="genre-grid">
-            <a class="genre-card d-flex justify-content-center align-items-center m-2" *ngFor="let genre of tvGenres" routerLink="/genres/{{genre.id}}/{{genre.name}}">
-                {{genre.name}}
+            <div class="row">
+            <a class="d-flex justify-content-center align-items-center col-12 col-sm-6 col-lg-4 col-xl-2 mb-4" *ngFor="let genre of tvGenres" routerLink="/genres/{{genre.id}}/{{genre.name}}">
+                <div class="genre-card d-flex justify-content-center align-items-center">
+                    {{genre.name}}
+                </div>
             </a>
             </div>
         </div>

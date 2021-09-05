@@ -3,65 +3,37 @@
 .page-wrapper {
     .genre-container {
         max-width: #{$max-genre-wrapper-width};
+        width: 80%;
 
         h2 {
             font-size: 2rem;
             padding-top: 3rem;
         }
+        
+        a {
+            .genre-card {
+                height: #{$genre-card-height};
+                background-color: #{$genre-card-background-color};
+                color: white;
+                font-size: 1.5rem;
+                border-radius: 6px;
+                outline: none;
+                border: none;
+                transition: 0.15s background-color ease-in-out;
+                width: 240px;
+                text-decoration: none;
 
-        .genre-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 1rem;
-        }
+                &:hover {
+                    background-color: #{$genre-card-background-color-hover};
+                }
+            } 
 
-        .genre-card {
-            height: #{$genre-card-height};
-            background-color: #{$genre-card-background-color};
-            color: white;
-            font-size: 1.5rem;
-            border-radius: 6px;
-            outline: none;
-            border: none;
-            transition: 0.15s background-color ease-in-out;
-            width: 240px;
-            text-decoration: none;
             &:hover {
-                background-color: #{$genre-card-background-color-hover};
                 color: white;
                 text-decoration: none;
             }
         }
-    }
-}
 
-@media (max-width: #{$breakpoint-lg}) {
-    .genre-page {
-        .genre-wrapper {
-            width: 80%;
-
-            .genre-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-                
-                .genre-card {
-                    width: 100%;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 730px) {
-    .genre-page {
-        .genre-wrapper {
-            .genre-grid {
-                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-
-                .genre-card {
-                    width: auto;
-                }
-            }
-        }
     }
 }
 
