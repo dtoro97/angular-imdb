@@ -1,22 +1,31 @@
 <div class="page-wrapper d-flex flex-column pb-5">
-    <div class="title pt-5">
-        <h1 class="pb-3 pl-3">{{type === 'movie' ? 'Movies' : 'TV Shows'}}</h1>
-    </div>
-    <div class="search-container d-flex justify-content-center">
-        <span class="search p-input-icon-right ml-5 mr-5">
-            <i class="pi pi-search"></i>
-            <input type="text" #searchBox placeholder="Search {{type === 'movie' ? 'Movies' : 'TV Shows'}}" pInputText [formControl]="searchBoxControl"/>
-        </span>
-    </div>
-    <app-skeleton *ngIf="loading" class="pt-5"></app-skeleton>
-    <app-card-grid class="pt-5" [items]="items" [type]="type" *ngIf="!loading"></app-card-grid>
-    <div class="paginator-container" *ngIf="shouldShowPaginator">
-        <p-paginator 
-            [rows]="18" 
-            [totalRecords]="totalPagesCount * 20"
-            [alwaysShow]="false"
-            [styleClass]="'paginator'"
-            (onPageChange)="onPageChange($event)">
-    </p-paginator>
-    </div>
+	<div class="title margin-auto">
+		<h1>{{ type === "movie" ? "Movies" : "TV Shows" }}</h1>
+	</div>
+	<div class="d-flex justify-content-center">
+		<span class="search p-input-icon-right">
+			<i class="pi pi-search"></i>
+			<input
+				type="text"
+				#searchBox
+				placeholder="Search {{ type === 'movie' ? 'Movies' : 'TV Shows' }}"
+				pInputText
+				[formControl]="searchBoxControl"
+			/>
+		</span>
+	</div>
+	<app-skeleton *ngIf="loading$ | async; else cardGrid"></app-skeleton>
+	<ng-template #cardGrid>
+		<app-card-grid [items]="items" [type]="type"></app-card-grid>
+	</ng-template>
+	<div class="paginator-container" *ngIf="shouldShowPaginator">
+		<p-paginator
+			[rows]="18"
+			[totalRecords]="totalPagesCount * 20"
+			[alwaysShow]="false"
+			[styleClass]="'paginator'"
+			(onPageChange)="onPageChange($event)"
+		>
+		</p-paginator>
+	</div>
 </div>

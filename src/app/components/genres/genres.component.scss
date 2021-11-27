@@ -1,44 +1,43 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .page-wrapper {
-    .genre-container {
-        max-width: #{$max-genre-wrapper-width};
-        width: 80%;
+	.genre-container {
+		max-width: #{$max-genre-wrapper-width};
+		width: 80%;
 
-        h2 {
-            font-size: 2rem;
-            padding-top: 3rem;
-        }
-        
-        a {
-            .genre-card {
-                height: #{$genre-card-height};
-                background-color: #{$genre-card-background-color};
-                color: white;
-                font-size: 1.5rem;
-                border-radius: 6px;
-                outline: none;
-                border: none;
-                transition: 0.15s background-color ease-in-out;
-                width: 240px;
-                text-decoration: none;
+		h2 {
+			font-size: 2rem;
+			padding-top: 3rem;
+		}
 
-                &:hover {
-                    background-color: #{$genre-card-background-color-hover};
-                }
-            } 
+		a {
+			.genre-card {
+				height: #{$genre-card-height};
+				background-color: $red;
+				color: white;
+				font-size: 1.5rem;
+				border-radius: 6px;
+				outline: none;
+				border: none;
+				transition: 0.15s background-color ease-in-out;
+				width: 240px;
+				text-decoration: none;
 
-            &:hover {
-                color: white;
-                text-decoration: none;
-            }
-        }
+				&:hover {
+					background-color: $red-hover;
+				}
+			}
 
-    }
+			&:hover {
+				color: white;
+				text-decoration: none;
+			}
+		}
+	}
 }
 
 @media (max-width: #{$breakpoint-xs}) {
-    h1 {
-        width: 100%;
-    }
+	h1 {
+		width: 100%;
+	}
 }

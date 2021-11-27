@@ -1,29 +1,33 @@
-<app-loading *ngIf="loading"></app-loading>
-<div class="page-wrapper d-flex flex-column pb-5">
-        <div class="carousel-container pt-5 pb-3" *ngIf="!loading">
-            <h1 class="pb-2 pl-3">Trending Movies</h1>
-            <p-carousel [value]="trendingMovies!" 
-                        [numVisible]="6" 
-                        [numScroll]="6" 
-                        [responsiveOptions]="responsiveOptions" 
-                        [showIndicators]="false"
-                        >
-                <ng-template let-movie pTemplate="item">
-                    <app-card [item]="movie" [type]="'movie'"></app-card>
-                </ng-template>
-            </p-carousel>
-        </div>
-        <div class="carousel-container pt-3 pb-5" *ngIf="!loading">
-            <h1 class="pb-2 pl-3 pt-5">Trending TV Shows</h1>
-            <p-carousel [value]="trendingTvShows!"
-                        [numVisible]="6" 
-                        [numScroll]="6" 
-                        [responsiveOptions]="responsiveOptions" 
-                        [showIndicators]="false"
-                        >
-                <ng-template let-tvShow pTemplate="item">
-                    <app-card [item]="tvShow" [type]="'tv'"></app-card>
-                </ng-template>
-            </p-carousel>
-        </div>
-</div>
+<app-loading *ngIf="loading | async; else homeContainer"></app-loading>
+<ng-template #homeContainer>
+	<div class="page-wrapper d-flex flex-column pb-5">
+		<div class="carousel-container pt-5 pb-3">
+			<h1 class="pb-2 pl-3">Trending Movies</h1>
+			<p-carousel
+				[value]="trendingMovies!"
+				[numVisible]="6"
+				[numScroll]="6"
+				[responsiveOptions]="responsiveOptions"
+				[showIndicators]="false"
+			>
+				<ng-template let-movie pTemplate="item">
+					<app-card [item]="movie" [type]="'movie'"></app-card>
+				</ng-template>
+			</p-carousel>
+		</div>
+		<div class="carousel-container pt-3 pb-5">
+			<h1 class="pb-2 pl-3 pt-5">Trending TV Shows</h1>
+			<p-carousel
+				[value]="trendingTvShows!"
+				[numVisible]="6"
+				[numScroll]="6"
+				[responsiveOptions]="responsiveOptions"
+				[showIndicators]="false"
+			>
+				<ng-template let-tvShow pTemplate="item">
+					<app-card [item]="tvShow" [type]="'tv'"></app-card>
+				</ng-template>
+			</p-carousel>
+		</div>
+	</div>
+</ng-template>

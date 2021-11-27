@@ -1,97 +1,122 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .page-wrapper {
-    .actor-container {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        max-width: 1700px;
+	.actor-container {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		max-width: 1700px;
 
-        .actor-card {
-            .avatar-area {
-                width: 20%;
-                max-height: 500px;
-    
-            img {
-                max-height: 100%;
-                max-width: 100%;
-                }
-            }
+		.actor-card {
+			.avatar-area {
+				width: 20%;
+				max-height: 500px;
 
-            .details-area {
-                flex: 1;
+				img {
+					max-height: 100%;
+					max-width: 100%;
+				}
+			}
 
-                .actor-biography {
-                    max-width: 800px;
-                    margin-bottom: 2rem;
-                }
-                
-                .details-list {
-                    list-style: none;
-                    max-width: 500px;
-    
-                    li {
-                        display: flex;
-                        padding-bottom: 0.7rem;
-    
-                        .label {
-                            flex: 1;
-                        }
-    
-                        .value {
-                            
-                            i {
-                                color: gold;
-                            }
-                        }
-                    }
-                }
+			.details-area {
+				flex: 1;
 
-                a {
-                    max-width: 80px;
-                    max-height: 40px;
-                    transition: opacity 0.15s ease-in-out;
+				.actor-biography {
+					max-width: 800px;
+					margin-bottom: 2rem;
 
-                    &:hover {
-                        opacity: 0.6;
-                    }
+					p {
+						text-align: justify;
+						line-height: 1.8;
+					}
+				}
 
-                    svg {
-                        max-width: 80px;
-                        max-height: 40px;
-                    }
-                }
-            }
-        }
+				.details-list {
+					list-style: none;
+					max-width: 500px;
 
-    }
+					li {
+						display: flex;
+						padding-bottom: 0.7rem;
+
+						.label {
+							flex: 1;
+						}
+
+						.value {
+							i {
+								color: gold;
+							}
+						}
+					}
+				}
+
+				a {
+					max-width: 80px;
+					max-height: 40px;
+					transition: opacity 0.15s ease-in-out;
+
+					&:hover {
+						opacity: 0.6;
+					}
+
+					svg {
+						max-width: 80px;
+						max-height: 40px;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: #{$breakpoint-xs}) {
-    .page-wrapper {
-        .actor-container {
-            padding-left: 0 !important;
+	.page-wrapper {
+		.actor-container {
+			padding-left: 0 !important;
 
-            .title {
-                padding-left: 1.5rem;
-            }
+			.title {
+				padding-left: 1.5rem;
+			}
 
-            .actor-card {
-                flex-direction: column !important;
-                padding-top: 0.5rem !important;
-                padding-left: 1.5rem !important;
-                padding-right: 1.5rem !important;
+			.actor-card {
+				flex-direction: column !important;
+				padding: 0.5rem 1.5rem 0 1.5rem !important;
 
-                .avatar-area {
-                    width: 100% !important;
-                }
+				.avatar-area {
+					width: 100% !important;
+				}
 
-                .details-area {
-                    padding-left: 0.2rem !important;
-                    padding-right: 0.2rem !important;
-                    padding-top: 1rem;
-                }
-            }
-        }
-    }
-} 
+				.details-area {
+					padding-left: 0.2rem !important;
+					padding-right: 0.2rem !important;
+					padding-top: 1rem;
+				}
+			}
+		}
+	}
+}
+
+:host ::ng-deep .p-carousel-container {
+	button {
+		border-radius: unset;
+		border: unset;
+		background-color: $red;
+		border-radius: 2px;
+		color: white;
+		font-weight: 400;
+		transition: background-color 0.2s ease-in-out;
+		outline: none;
+
+		&:hover {
+			color: #495057;
+			border-color: transparent;
+			background: #e9ecef;
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 0.2rem #495057;
+			border-color: $red-hover;
+		}
+	}
+}

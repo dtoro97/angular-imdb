@@ -1,14 +1,16 @@
-<div class="page-wrapper d-flex flex-column pb-5">
-    <app-loading *ngIf="loading"></app-loading>
-    <div class="genre-title pt-5" *ngIf="genre && !loading">
-        <h1 class="pb-3 pl-3">{{genre.name}}</h1>
-    </div>
-    <ng-container *ngIf="!loading && movies.length > 0">
-        <h3 class="pl-3">Movies</h3>
-        <app-card-grid [items]="movies" [type]="'movie'"></app-card-grid>
-    </ng-container>
-    <ng-container *ngIf="!loading && shows.length > 0">
-        <h3 class="pl-3">TV Shows</h3>
-        <app-card-grid [items]="shows" [type]="'tv'"></app-card-grid>
-    </ng-container>
+<div class="page-wrapper margin-auto d-flex flex-column">
+	<app-loading *ngIf="loading$ | async; else content"></app-loading>
+	<ng-template #content>
+		<div class="title" *ngIf="genre">
+			<h1 class="pl-3 pt-3">{{ genre.name }}</h1>
+		</div>
+		<ng-container *ngIf="movies.length">
+			<h3 class="pl-3">Movies</h3>
+			<app-card-grid [items]="movies" [type]="'movie'"></app-card-grid>
+		</ng-container>
+		<ng-container *ngIf="shows.length">
+			<h3>TV Shows</h3>
+			<app-card-grid [items]="shows" [type]="'tv'"></app-card-grid>
+		</ng-container>
+	</ng-template>
 </div>

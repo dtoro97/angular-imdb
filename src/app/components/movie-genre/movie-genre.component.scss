@@ -1,17 +1,6 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .page-wrapper {
-    .genre-title {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        max-width: 1700px;
-    }
-
-    h3 {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        max-width: 1700px;
-    }
+	gap: 1.5rem;
+	max-width: $max-width-lg;
 }

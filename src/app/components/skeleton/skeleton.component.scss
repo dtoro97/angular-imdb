@@ -1,4 +1,6 @@
+@import "../../../styles/variables.scss";
+
 .skeleton {
-    max-width: 1700px;
-    margin: auto;
+	max-width: $max-width-lg;
+	margin: auto;
 }

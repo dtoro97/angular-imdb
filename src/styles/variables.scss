@@ -10,8 +10,8 @@ $header-menu-height-mobile: 250px;
 
 $genre-card-height: 60px;
 $max-genre-wrapper-width: 1200px;
-$genre-card-background-color: #E50914;
-$genre-card-background-color-hover: #e50914a9;
+$red: #e50914;
+$red-hover: #e50914a9;
 
 $footer-height: 150px;
 
@@ -20,3 +20,6 @@ $white-text-hover-color: rgba(124, 124, 124, 0.596);
 $breakpoint-xs: 600px;
 $breakpoint-md: 1000px;
 $breakpoint-lg: 1100px;
+
+$max-width-lg: 1500px;
+$max-width-xl: 1700px;

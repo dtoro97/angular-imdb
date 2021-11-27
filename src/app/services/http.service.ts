@@ -6,7 +6,6 @@ import { ResponseDataModel } from '../models/response-data-model';
 import { GenreDataModel } from '../models/genre-model';
 import { MovieDetails } from '../models/movie-details';
 import { TvDetails } from '../models/tv-details';
-import { ResultModel } from '../models/result-model';
 import { CastResponseData } from '../models/cast-response-data';
 import { ActorDetails } from '../models/actor-details';
 

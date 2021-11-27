@@ -1,51 +1,84 @@
-@import '~bootstrap-icons/font/bootstrap-icons.css';
-@import './styles/variables.scss';
-@import '~bootstrap/dist/css/bootstrap.css';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "./styles/variables.scss";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 @font-face {
-    font-family: "Inter-light";
-    src: url('./assets/fonts/Inter-Light.ttf') format("truetype");
-    font-weight: 300;
+	font-family: "Inter-light";
+	src: url("./assets/fonts/Inter-Light.ttf") format("truetype");
+	font-weight: 300;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url('./assets/fonts/Inter-Regular.ttf') format("truetype");
-    font-weight: 400;
+	font-family: "Inter";
+	src: url("./assets/fonts/Inter-Regular.ttf") format("truetype");
+	font-weight: 400;
 }
 
 @font-face {
-    font-family: "Inter-medium";
-    src: url('./assets/fonts/Inter-Medium.ttf') format("truetype");
-    font-weight: 500;
+	font-family: "Inter-medium";
+	src: url("./assets/fonts/Inter-Medium.ttf") format("truetype");
+	font-weight: 500;
 }
 
 @font-face {
-    font-family: "Inter-bold";
-    src: url('./assets/fonts/Inter-Bold.ttf') format("truetype");
-    font-weight: 700;
+	font-family: "Inter-bold";
+	src: url("./assets/fonts/Inter-Bold.ttf") format("truetype");
+	font-weight: 700;
 }
 
 body {
-    min-height: 100%;
-    font-family: 'Inter', sans-serif;
-    font-size: #{$font-size-base}px;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    color: white;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
+	min-height: 100%;
+	font-family: "Inter", sans-serif;
+	font-size: #{$font-size-base}px;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	color: white;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
 }
 
 .resize-animation-stopper * {
-    animation: none !important;
-    transition: none !important;
+	animation: none !important;
+	transition: none !important;
 }
 
-
 .page-wrapper {
-    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+	min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+
+.paragraph {
+	text-align: justify;
+	line-height: 1.8;
+}
+
+.margin-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.p-carousel-container {
+	button {
+		border-radius: unset;
+		border: unset;
+		background-color: $red-hover;
+		border-radius: 2px;
+		color: white;
+		font-weight: 400;
+		transition: background-color 0.2s ease-in-out;
+		outline: none;
+
+		&:hover {
+			color: #495057;
+			border-color: transparent;
+			background: #e9ecef;
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 0.2rem #495057;
+			border-color: $red-hover;
+		}
+	}
 }

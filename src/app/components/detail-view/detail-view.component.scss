@@ -1,205 +1,225 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .page-wrapper {
-    .cast-container {
-        margin: auto;
-        width: 100%;
-        max-width: 1700px;
-    }
+	.cast-container {
+		margin: auto;
+		width: 100%;
+		max-width: 1700px;
+	}
 
-    .details-container {
-        margin: auto;
-        width: 100%;
-        max-width: 1700px;
+	::ng-deep .p-carousel-container {
+		button {
+			border-radius: unset;
+			border: unset;
+			background-color: $red-hover;
+			border-radius: 2px;
+			color: white;
+			font-weight: 400;
+			transition: background-color 0.2s ease-in-out;
+			outline: none;
 
-        .poster-area {
-            width: 20%;
-            max-height: 500px;
+			&:hover {
+				color: #495057;
+				border-color: transparent;
+				background: #e9ecef;
+			}
 
-            img {
-                max-height: 100%;
-                max-width: 100%;
-            }
-        }
+			&:focus {
+				box-shadow: 0 0 0 0.2rem #495057;
+				border-color: $red-hover;
+			}
+		}
+	}
 
-        .details-area {
-            flex: 1;
+	.details-container {
+		margin: auto;
+		width: 100%;
+		max-width: 1700px;
 
-            .plot {
-                max-width: 800px;
-                margin-bottom: 2rem;
-            }
+		.poster-area {
+			width: 20%;
+			max-height: 500px;
 
-            .genre-list {
-                .btn-genre {
-                    background-color: #{$genre-card-background-color};
-                    color: white;
-                    font-size: 1rem;
-                    border-radius: 6px;
-                    outline: none;
-                    border: none;
-                    transition: 0.15s background-color ease-in-out;
-                    height: 100%;
-                    text-decoration: none;
+			img {
+				max-height: 100%;
+				max-width: 100%;
+			}
+		}
 
-                    &:hover {
-                        background-color: #{$genre-card-background-color-hover};
-                        color: white;
-                        text-decoration: none;
-                    }
+		.details-area {
+			flex: 1;
 
-                    &:not(:last-child) {
-                        margin-right: 0.5rem;
-                    }
-                }
-            }
-            
-            a {
-                max-width: 80px;
-                max-height: 40px;
-                transition: opacity 0.15s ease-in-out;
+			.plot {
+				max-width: 800px;
+				margin-bottom: 2rem;
+			}
 
-                &:hover {
-                    opacity: 0.6;
-                }
+			.genre-list {
+				.btn-genre {
+					background-color: $red;
+					color: white;
+					font-size: 1rem;
+					border-radius: 6px;
+					outline: none;
+					border: none;
+					transition: 0.15s background-color ease-in-out;
+					height: 100%;
+					text-decoration: none;
 
-                svg {
-                    max-width: 80px;
-                    max-height: 40px;
-                }
-            }
+					&:hover {
+						background-color: $red-hover;
+						color: white;
+						text-decoration: none;
+					}
 
-            .details-list {
-                list-style: none;
-                max-width: 250px;
+					&:not(:last-child) {
+						margin-right: 0.5rem;
+					}
+				}
+			}
 
-                li {
-                    display: flex;
-                    padding-bottom: 0.7rem;
+			a {
+				max-width: 80px;
+				max-height: 40px;
+				transition: opacity 0.15s ease-in-out;
 
-                    .label {
-                        flex: 1;
-                    }
+				&:hover {
+					opacity: 0.6;
+				}
 
-                    .value {
-                        
-                        i {
-                            color: gold;
-                        }
-                    }
-                }
-            }
-        }
-    }
+				svg {
+					max-width: 80px;
+					max-height: 40px;
+				}
+			}
 
-    .carousel-container {
-        margin: auto;
-        width: 100%;
-        max-width: 1700px;  
-    }
+			.details-list {
+				list-style: none;
+				max-width: 250px;
 
-    .header-container {
-        
-        .detail-info {
-            padding-left: 10rem;
-            z-index: 10;
-            background: linear-gradient(90deg,#111 30%,transparent);
-            min-height: 30rem;
+				li {
+					display: flex;
+					padding-bottom: 0.7rem;
 
-            .detail-header {
-                width: 100%;
-                max-width: 30rem;
+					.label {
+						flex: 1;
+					}
 
-                i {
-                    color: gold;
-                }
+					.value {
+						i {
+							color: gold;
+						}
+					}
+				}
+			}
+		}
+	}
 
-                span {
-                    &:not(:last-child) {
-                        content: "|";
-                        margin-right: 0.5rem;
-                        margin-left: 0.5rem;
-                    }
-                }
-            }
+	.carousel-container {
+		margin: auto;
+		width: 100%;
+		max-width: 1700px;
+	}
 
-            .detail-footer {
-                width: 50%;
+	.header-container {
+		.detail-info {
+			padding-left: 10rem;
+			z-index: 10;
+			background: linear-gradient(90deg, #111 30%, transparent);
+			min-height: 30rem;
 
-                .btn-trailer {
-                    background-color: #{$genre-card-background-color};
-                    color: white;
-                    font-size: 1.5rem;
-                    border-radius: 6px;
-                    outline: none;
-                    border: none;
-                    transition: 0.15s background-color ease-in-out;
-                    width: 240px;
-                    text-decoration: none;
-                    &:hover {
-                        background-color: #{$genre-card-background-color-hover};
-                        color: white;
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
+			.detail-header {
+				width: 100%;
+				max-width: 30rem;
 
-        .detail-backdrop {
-            box-shadow:inset 0 0 0 2000px rgba(26, 26, 26, 0.2);
-            position: absolute;
-            right: 0;
-            background-size: cover;
-            width: 80%;
-            min-height: 30rem;
-        }
-    }
+				i {
+					color: gold;
+				}
 
+				span {
+					&:not(:last-child) {
+						content: "|";
+						margin-right: 0.5rem;
+						margin-left: 0.5rem;
+					}
+				}
+			}
+
+			.detail-footer {
+				width: 50%;
+
+				.btn-trailer {
+					background-color: $red;
+					color: white;
+					font-size: 1.5rem;
+					border-radius: 6px;
+					outline: none;
+					border: none;
+					transition: 0.15s background-color ease-in-out;
+					width: 240px;
+					text-decoration: none;
+					&:hover {
+						background-color: $red-hover;
+						color: white;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		.detail-backdrop {
+			box-shadow: inset 0 0 0 2000px rgba(26, 26, 26, 0.2);
+			position: absolute;
+			right: 0;
+			background-size: cover;
+			width: 80%;
+			min-height: 30rem;
+		}
+	}
 }
 
-
 @media (max-width: #{$breakpoint-xs}) {
-    .detail-info {
-        padding-left: 1.5rem !important;
+	.detail-info {
+		padding-left: 1.5rem !important;
 
-        .detail-footer {
-            width: 80% !important;
-            p {
-                text-align: justify;
-            }
-        }
-    }
+		.detail-footer {
+			width: 80% !important;
+			p {
+				text-align: justify;
+			}
+		}
+	}
 
-    .detail-backdrop {
-        background-position: 50% 50%!important;
-    }
+	.detail-backdrop {
+		background-position: 50% 50% !important;
+	}
 
-    .poster-area {
-        display: none !important;
+	.poster-area {
+		display: none !important;
 
-        img {
-            display: none !important;
-        }
-    }
+		img {
+			display: none !important;
+		}
+	}
 
-    .details-area {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+	.details-area {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
 
-        .details-list {
-            max-width: unset !important;
-        }
-    }
+		.details-list {
+			max-width: unset !important;
+		}
+	}
 
-    .carousel-container {
-        h2 {
-            padding-left: 4rem !important;
-        }
-    }
+	.carousel-container {
+		h2 {
+			padding-left: 4rem !important;
+		}
+	}
 
-    .genre-list {
-        .btn-genre {
-            height: auto !important;
-        }
-    }
+	.genre-list {
+		.btn-genre {
+			height: auto !important;
+		}
+	}
 }

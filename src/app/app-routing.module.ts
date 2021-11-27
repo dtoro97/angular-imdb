@@ -8,14 +8,14 @@ import { MovieGenreComponent } from './components/movie-genre/movie-genre.compon
 import { TopRatedComponent } from './components/top-rated/top-rated.component';
 
 const routes: Routes = [
-    { path: 'genres', component: GenresComponent},
-    { path: 'genres/:id/:name', component: MovieGenreComponent },
-    { path: 'home', component: HomeComponent},
-    { path: 'top/:type', component: TopRatedComponent },
-    { path: 'actor/:id', component: ActorDetailComponent, pathMatch: 'full' },
-    { path: ':type/:id', component: DetailViewComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full'},
-    { path: '**', redirectTo: '/home' }
+	{ path: 'genres', component: GenresComponent },
+	{ path: 'genres/:id/:name', component: MovieGenreComponent },
+	{ path: 'home', component: HomeComponent },
+	{ path: 'top/:type', component: TopRatedComponent },
+	{ path: 'actor/:id', component: ActorDetailComponent, pathMatch: 'full' },
+	{ path: ':type/:id', component: DetailViewComponent },
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
+	{ path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
